@@ -1,0 +1,62 @@
+print("--- 📚 Welcome to My Library Book Organiser 📚 ---")
+print()
+
+# Step 1: Dictionary toiri kora (Librarian details)
+librarian_details = {
+    "name": "Alex",
+    "library_section": "Kids Fiction",
+    "total_books_managed": 50
+}
+print(f"Librarian {librarian_details['name']} is ready to organize the library!")
+
+# Step 2: Initial List structure (Boier list)
+books = ["Harry Potter", "Percy Jackson", "Peter Pan"]
+print(f"\nCurrent books in library: {books}")
+
+# ==========================================
+# LIST OPERATIONS (Boi sajano ar bad dewa)
+# ==========================================
+
+# 1. Adding: Nutun boi juktô kora (.append)
+books.append("The Hobbit")
+print(f"1. After adding a new book: {books}")
+
+# 2. Removing: Vool boi bad dewa (.remove)
+books.remove("Peter Pan")
+print(f"2. After removing 'Peter Pan': {books}")
+
+# 3. Sorting: Alphabet/A-B-C onujayi shajano (.sort)
+books.sort()
+print(f"3. Sorted books (A to Z): {books}")
+
+# 4. Reversing: List-ti ulte dewa (.reverse)
+books.reverse()
+print(f"4. Reversed books (Z to A): {books}")
+
+# 5. Indexing: Position dekhe boi khunje ber kora (0 index theke shuru)
+first_book = books[0]
+print(f"5. The very first book in the list is: '{first_book}'")
+
+# 6. Slicing: List theke duto ba tinti boi alada kete newa
+sliced_books = books[0:2] # Position 0 ebong 1 er boi pabe
+print(f"6. Top 2 books (Slicing): {sliced_books}")
+
+
+# ==========================================
+# DICTIONARY & ZIP OPERATIONS (Book Directory)
+# ==========================================
+print("\n--- Creating Digital Book Directory ---")
+
+# Duto alada list: Ekta boier naam, arekta shelf number
+book_names = ["Harry Potter", "Percy Jackson", "The Hobbit"]
+shelf_numbers = ["Shelf A1", "Shelf B3", "Shelf C2"]
+
+# dict() ebong zip() use kore duto list ke jog kore ekti directory (dictionary) banানো
+book_directory = dict(zip(book_names, shelf_numbers))
+
+print("Our Book Directory is ready:")
+print(book_directory)
+
+# Dictionary operation: Kono ekti boi kon shelf-e ache khunje ber kora
+searched_book = "Percy Jackson"
+print(f"\n🔍 Searching for '{searched_book}': It is on {book_directory[searched_book]}")
