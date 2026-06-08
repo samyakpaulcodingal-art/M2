@@ -1,0 +1,69 @@
+print("--- 🎨 Welcome to My Art Gallery Collection Manager 🎨 ---")
+print()
+
+class ArtGallery:
+    # 1. Parameterized Constructor: Gallery setup korar jonno
+    def __init__(self, gallery_name, location):
+        self.gallery_name = gallery_name
+        self.location = location
+        self.artworks = [] # Initialize an empty artwork list by default
+        print(f"✨ [Constructor Called]: '{self.gallery_name}' has been successfully opened at {self.location}!")
+
+    # 2. Class Method: Nutun chobi juktô kora
+    def add_artwork(self, artwork_name):
+        self.artworks.append(artwork_name)
+        print(f"✅ '{artwork_name}' added to the collection.")
+
+    # 3. Class Method: Chobi bad dewa
+    def remove_artwork(self, artwork_name):
+        if artwork_name in self.artworks:
+            self.artworks.remove(artwork_name)
+            print(f"❌ '{artwork_name}' has been removed from the gallery.")
+        else:
+            print(f"⚠️ '{artwork_name}' is not found in the collection!")
+
+    # 4. Class Method: Shob chobi eksathe dekhano
+    def display_artworks(self):
+        print(f"\n--- 🖼️ {self.gallery_name} Collection ---")
+        if not self.artworks:
+            print("The gallery is currently empty. Add some beautiful paintings!")
+        else:
+            for index, art in enumerate(self.artworks, start=1):
+                print(f"{index}. {art}")
+        print("-----------------------------------")
+
+    # 5. Destructor: Object jokhon delete ba closed hobe
+    def __del__(self):
+        print(f"🛑 [Destructor Called]: '{self.gallery_name}' is now closing. Goodbye!")
+
+
+# ==========================================
+# MENU-DRIVEN PROGRAM (User interface)
+# ==========================================
+
+# Initializing the gallery with parameterized constructor
+my_gallery = ArtGallery("National Museum Art Gallery", "Stockholm")
+
+while True:
+    print("\nWhat would you like to do?")
+    print("1. Add Artwork")
+    print("2. Remove Artwork")
+    print("3. Display All Artworks")
+    print("4. Close Gallery & Exit")
+    
+    choice = input("Enter choice (1-4): ")
+    
+    if choice == '1':
+        art_name = input("Enter the name of the painting: ")
+        my_gallery.add_artwork(art_name)
+    elif choice == '2':
+        art_name = input("Enter the name of the painting to remove: ")
+        my_gallery.remove_artwork(art_name)
+    elif choice == '3':
+        my_gallery.display_artworks()
+    elif choice == '4':
+        # Manually deleting the object to trigger the destructor immediately
+        del my_gallery 
+        break
+    else:
+        print("Invalid choice! Please choose between 1 and 4.")
