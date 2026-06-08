@@ -1,0 +1,43 @@
+print("--- 🤖 Welcome to the Robot Factory (OOPs) 🤖 ---")
+print()
+
+# Step 1: Robot-er Blueprint ba Class toiri kora
+class Robot:
+    # __init__ constructor: Eti diye proti'ti robot-er nijossho details set kora hoy
+    def __init__(self, name, color, battery_level):
+        self.name = name                 # Attribute 1: Robot-er naam
+        self.color = color               # Attribute 2: Robot-er rong
+        self.battery_level = battery_level # Attribute 3: Battery percent
+        
+    # Method 1: Robot nijer porichoy (Introduction) debe
+    def introduce_myself(self):
+        print(f"Hello! I am a robot. My name is {self.name}! 🤖")
+        print(f"Look at my shiny {self.color} body!")
+        print(f"My battery status is currently at {self.battery_level}%.")
+
+    # Method 2: Robot-er kaj (Action method)
+    def perform_task(self, task_name):
+        print(f"⚡ {self.name} is now starting the task: '{task_name}'...")
+        print("Task completed successfully! ✅")
+
+
+# Step 2: Object toiri kora (Blueprint theke sotti sotti Robot banানো)
+
+# 1st Robot Object toiri holo
+robot1 = Robot("Robo-X", "Glossy Black", 95)
+
+# 2nd Robot Object toiri holo
+robot2 = Robot("Sparky", "Matte Grey", 40)
+
+
+# Step 3: Robot-der kache theke kaj neya (Calling Methods)
+
+print("--- Activating Robot 1 ---")
+robot1.introduce_myself()
+robot1.perform_task("Cleaning the room")
+
+print("\n----------------------------------------\n")
+
+print("--- Activating Robot 2 ---")
+robot2.introduce_myself()
+robot2.perform_task("Watering the plants")
