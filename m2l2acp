@@ -1,0 +1,44 @@
+print("--- 🎒 Welcome to My School Subject Planner 🎒 ---")
+print()
+
+# Step 1: Tuple toiri kora (Fixed Student Details - ja change kora jay na)
+student_details = ("Lukas", "Class 5", "Sweden International School")
+
+# Tuple access kora
+print("--- Student Profile (Tuple) ---")
+print(f"Student Name: {student_details[0]}")
+print(f"Class: {student_details[1]}")
+print(f"School: {student_details[2]}")
+
+
+# Step 2: Sets toiri kora (Alada alada diner subject list)
+# Set-er jadu holo ekhane kono duplicate data thake na
+monday_subjects = {"Maths", "Science", "English", "Swedish"}
+tuesday_subjects = {"Maths", "History", "Swedish", "Art"}
+
+print("\n--- Initial Subject Schedule (Sets) ---")
+print(f"Monday Subjects: {monday_subjects}")
+print(f"Tuesday Subjects: {tuesday_subjects}")
+
+
+# Step 3: Modifying Sets (Set-e nutun subject juktô ba bad dewa)
+print("\n--- Updating Monday's Schedule ---")
+# 1. Adding a subject (.add)
+monday_subjects.add("Music")
+print(f"After adding Music to Monday: {monday_subjects}")
+
+# 2. Removing a subject (.remove)
+monday_subjects.remove("English")
+print(f"After removing English from Monday: {monday_subjects}")
+
+
+# Step 4: Compare Subjects using Set Operations (Common elements ber kora)
+print("\n--- Comparing Monday & Tuesday Schedules ---")
+
+# 1. Intersection: Duto din-ei common kon kon subject ache (& ba .intersection)
+common_subjects = monday_subjects.intersection(tuesday_subjects)
+print(f"🔍 Common subjects on both days (Intersection): {common_subjects}")
+
+# 2. Union: Total duto din miliye kota alada subject porte hobe (.union)
+all_subjects = monday_subjects.union(tuesday_subjects)
+print(f"📚 All unique subjects across both days (Union): {all_subjects}")
