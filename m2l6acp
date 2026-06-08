@@ -1,0 +1,77 @@
+print("--- 🐾 Welcome to My Pet Care Dashboard 🐾 ---")
+print()
+
+# Step 1: Parent Class 'Pet' toiri kora (Encapsulation soho)
+class Pet:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        # Encapsulation: Double underscore (__) diye health data private kora holo
+        self.__health_status = "Good" 
+
+    # Getter Method: Private health data dekhar jonno chabi
+    def get_health_status(self):
+        return self.__health_status
+
+    # Setter Method: Private health data safely update korar jonno chabi
+    def set_health_status(self, new_status):
+        if new_status in ["Good", "Fair", "Needs Attention"]:
+            self.__health_status = new_status
+            print(f"🔄 [System Update]: {self.name}'s health status updated to '{new_status}'.")
+        else:
+            print("⚠️ Invalid health status entry!")
+
+    # Parent Method (Ja pore override hobe)
+    def make_sound(self):
+        return "Some generic pet sound"
+
+
+# Step 2: Child Class 1 - Dog (Inheritance & Method Overriding)
+class Dog(Pet):
+    def __init__(self, name, age, breed):
+        super().__init__(name, age) # Parent constructor call kora
+        self.breed = breed
+
+    # Method Overriding: Parent-er make_sound ke nijer moto bodle neya
+    def make_sound(self):
+        return "🦮 Woof! Woof! (Wagging tail)"
+
+
+# Step 3: Child Class 2 - Cat (Inheritance & Method Overriding)
+class Cat(Pet):
+    def __init__(self, name, age, is_lazy):
+        super().__init__(name, age)
+        self.is_lazy = is_lazy
+
+    # Method Overriding
+    def make_sound(self):
+        return "🐈 Meow~ Meow~ (Purring smoothly)"
+
+
+# ==========================================
+# DASHBOARD SHOWCASE (Polymorphism in Action)
+# ==========================================
+
+# Objects toiri kora
+my_dog = Dog("Buddy", 3, "Golden Retriever")
+my_cat = Cat("Whiskers", 2, True)
+
+# Encapsulation and Setter testing
+print("--- 🩺 Checking and Updating Health Data ---")
+print(f"Before update, {my_dog.name}'s health: {my_dog.get_health_status()}")
+# Directly my_dog.__health_status = "Sick" likhle kaj korbe na (Protected)
+my_dog.set_health_status("Needs Attention") # Safely updating using setter
+print(f"After update, {my_dog.name}'s health: {my_dog.get_health_status()}")
+
+print("\n----------------------------------------\n")
+print("--- 🖥️ Pet Care Dashboard Overview ---")
+
+# Polymorphism: Ekta list-e rakhbe ar loop chaliye same function call korbe
+pet_list = [my_dog, my_cat]
+
+for pet in pet_list:
+    print(f"Pet Name: {pet.name} | Age: {pet.age} years")
+    # Loop-er bhetor pet.make_sound() call korle automatic dynamic output pabe
+    print(f"Sound: {pet.make_sound()}")
+    print(f"Health Report: {pet.get_health_status()}")
+    print("-" * 40)
