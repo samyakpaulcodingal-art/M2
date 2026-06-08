@@ -1,0 +1,59 @@
+# Python-er abstract class library import kora
+from abc import ABC, abstractmethod
+
+print("--- 🎵 Welcome to the Music Instrument Sound Show 🎵 ---")
+print()
+
+# Step 1: Abstract Parent Class toiri kora (Jadu-niyamer khata)
+class Instrument(ABC):
+    def __init__(self, name):
+        self.name = name # Parent attribute
+
+    # Abstract Method: Ekhane kono code thakbe na, shudhu niyam thakbe
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+
+# Step 2: Child Class 1 - Guitar (Inheriting from Instrument)
+class Guitar(Instrument):
+    def __init__(self, name, number_of_strings):
+        # super() diye parent class-er constructor-ke daka holo name set korar jonno
+        super().__init__(name)
+        self.number_of_strings = number_of_strings # Child attribute
+
+    # Implementing the abstract method (Nijossho shobdo toiri kora)
+    def make_sound(self):
+        return "🎸 Pluck! Tring~ Tring~ Strumming beautiful melodies!"
+
+
+# Step 3: Child Class 2 - Drum (Inheriting from Instrument)
+class Drum(Instrument):
+    def __init__(self, name, drum_type):
+        # super() use kore parent constructor call kora holo
+        super().__init__(name)
+        self.drum_type = drum_type # Child attribute
+
+    # Implementing the abstract method
+    def make_sound(self):
+        return "🥁 Boom! Dum! Dum! Energetic beats playing!"
+
+
+# ==========================================
+# SHOWTIME! (Program execution)
+# ==========================================
+
+# Child class variables/objects toiri kora
+my_guitar = Guitar("Acoustic Guitar", 6)
+my_drum = Drum("Snare Drum", "Acoustic")
+
+# Ekta list-e shob instrument-ke rakha
+orchestra = [my_guitar, my_drum]
+
+print("--- 🎤 The Sound Show is Starting! 🎤 ---\n")
+
+# Loop chaliye proti'ti instrument-er nijossho sound output dekhano
+for instrument in orchestra:
+    print(f"Instrument: {instrument.name}")
+    print(f"Sound Output: {instrument.make_sound()}")
+    print("-" * 40)
